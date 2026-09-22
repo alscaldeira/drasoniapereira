@@ -1,69 +1,72 @@
 import Image from "next/image";
+import Hero from "@/components/Hero";
+import CategoriesSection from "@/components/CategoriesSection";
+import Testimonials from "@/components/Testimonials";
+import Reveal from "@/components/Reveal";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <Hero />
+      <CategoriesSection />
+
+      <section className="mx-auto max-w-5xl px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+        <Reveal>
+          <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-rose">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/images/dra-sonia-pereira.jpg"
+              alt="Dra. Sônia Pereira"
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 480px, 100vw"
             />
-            Deploy Now
-          </a>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <span className="text-xs uppercase tracking-widest text-gold">
+            Sobre
+          </span>
+          <h2 className="font-serif-display text-3xl md:text-4xl mt-3 mb-5">
+            Confiança construída ao longo de mais de 10 anos
+          </h2>
+          <p className="text-muted leading-relaxed">
+            Sou a Dra. Sônia Pereira, biomédica com mais de 10 anos de
+            experiência na área de estética. Ao longo desses anos, construí
+            uma relação de confiança com cada cliente, unindo técnica,
+            atualização constante e um cuidado verdadeiro com o bem-estar e a
+            autoestima de quem se trata comigo.
+          </p>
+          <Link
+            href="/sobre"
+            className="inline-block mt-6 text-rose-deep hover:text-gold transition-colors text-sm tracking-wide"
+          >
+            Conhecer minha trajetória →
+          </Link>
+        </Reveal>
+      </section>
+
+      <Testimonials />
+
+      <section className="mx-auto max-w-4xl px-6 py-20 text-center">
+        <Reveal>
+          <h2 className="font-serif-display text-3xl md:text-4xl mb-4">
+            Vamos cuidar de você?
+          </h2>
+          <p className="text-muted mb-8">
+            Agende uma avaliação e descubra o tratamento ideal para o seu
+            objetivo.
+          </p>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://wa.me/5511910630909"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-block rounded-full bg-rose-deep text-white px-8 py-3.5 tracking-wide hover:bg-gold transition-colors"
           >
-            Documentation
+            Agendar pelo WhatsApp
           </a>
-        </div>
-      </main>
-    </div>
+        </Reveal>
+      </section>
+    </>
   );
 }
